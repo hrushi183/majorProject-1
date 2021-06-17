@@ -20,7 +20,7 @@ var usersRouter = require('./routes/users');
 
 // Sessions 
 var sessionStore = new MongoDBStore({
-  uri: 'mongodb://localhost/mp',
+  uri: 'mongodb+srv://hrushikesh:hrushi123@cluster0.kueh2.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
   collection: 'sessions'
   });
   // function(error)

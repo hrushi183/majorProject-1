@@ -47,14 +47,25 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(flash());
 app.locals.moment = moment;
 
-app.use(cookieParser());
-app.use(session({
-   secret: process.env.COOKIE_SCERET,
-   resave: true,
-   store: sessionStore,
-   saveUninitialized: true,
-   cookie:{ maxAge: 1000 * 60 * 60 * 24 } // 24 hrs
+app.use(express.compress());
+app.use(express.bodyParser());
+app.use(express.cookieParser());
+app.use(express.cookieSession({
+  key: "mysite.sid.uid.whatever",
+  secret: process.env["SESSION_SECRET"],
+  cookie: {
+    maxAge: 2678400000 // 31 days
+  },
 }));
+
+// app.use(cookieParser());
+// app.use(session({
+//    secret: process.env.COOKIE_SCERET,
+//    resave: true,
+//    store: sessionStore,
+//    saveUninitialized: true,
+//    cookie:{ maxAge: 1000 * 60 * 60 * 24 } // 24 hrs
+// }));
 
 // passport code
 // app.use(passport.initialize());

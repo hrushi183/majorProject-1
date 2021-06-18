@@ -23,7 +23,7 @@ const order = require('../models/order');
 
 
 // connecting to database #mongodb
-let url = "mongodb+srv://hrushikesh:hrushi123@cluster0.kueh2.mongodb.net/myFirstDatabase?retryWrites=true&w=majority/chefs" || process.env.DATABASEURL;
+let url = "mongodb+srv://hrushikesh:hrushi123@cluster0.kueh2.mongodb.net/myFirstDatabase?retryWrites=true&w=majority" || process.env.DATABASEURL;
  mongoose.connect(url, { useNewUrlParser: true,useUnifiedTopology: true,useCreateIndex: true,useFindAndModify:false },function(err,database){
    console.log('connected to mongodb');
  });
